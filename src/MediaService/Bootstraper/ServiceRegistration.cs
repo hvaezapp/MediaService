@@ -1,4 +1,5 @@
-﻿using MediaService.Model.Context;
+﻿using MassTransit;
+using MediaService.Model.Context;
 using MediaService.Shared;
 using Microsoft.EntityFrameworkCore;
 using Minio;
@@ -31,7 +32,7 @@ namespace MediaService.Bootstraper
             var minioSetting = builder.Configuration.GetSection(MinioSetting.SectionName).Get<MinioSetting>();
 
             if (minioSetting is null)
-                throw new Exception("Unable to get Minio Setting");
+                throw new ArgumentNullException(nameof(minioSetting));
 
             builder.Services.AddMinio(configureClient => configureClient
                             .WithEndpoint(minioSetting.Endpoint)
@@ -39,6 +40,29 @@ namespace MediaService.Bootstraper
                             .WithSSL(false)
                             .Build());
 
+        }
+
+
+        public static void RegisterBroker(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddMassTransit(configure =>
+            {
+                var brokerSetting = builder.Configuration.GetSection(BrokerSetting.SectionName)
+                                                        .Get<BrokerSetting>();
+                if (brokerSetting is null)
+                    throw new ArgumentNullException(nameof(brokerSetting));
+
+                configure.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.Host(brokerSetting.Host, hostConfigure =>
+                    {
+                        hostConfigure.Username(brokerSetting.Username);
+                        hostConfigure.Password(brokerSetting.Password);
+                    });
+
+                    cfg.ConfigureEndpoints(context);
+                });
+            });
         }
     }
 }
