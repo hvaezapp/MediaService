@@ -1,4 +1,4 @@
-# 📄 MediaService
+# MediaService
 
 ## Overview
 
