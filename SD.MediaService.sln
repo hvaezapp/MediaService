@@ -7,6 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaService", "src\MediaService\MediaService.csproj", "{C7A5F08C-C4B3-4F82-BA2A-90F6D0B54028}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{D2A3FC0C-5525-4A52-B402-61F23267D04E}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Devops\minio\docker-compose.yaml = ..\..\..\Devops\minio\docker-compose.yaml
+		..\..\..\Devops\minio\nginx.conf = ..\..\..\Devops\minio\nginx.conf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +29,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C7A5F08C-C4B3-4F82-BA2A-90F6D0B54028} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D2A3FC0C-5525-4A52-B402-61F23267D04E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 EndGlobal
