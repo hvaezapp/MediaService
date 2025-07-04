@@ -1,12 +1,20 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using MediaService.Bootstraper;
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+var builder = WebApplication.CreateBuilder(args);
+
+builder.RegisterCommonCases();
+builder.RegisterInMemoryDatabase();
+builder.RegisterMinio();
 
 var app = builder.Build();
 
-app.UseSwagger();
-app.UseSwaggerUI();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
 
 app.Run();
 
