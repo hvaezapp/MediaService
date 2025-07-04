@@ -37,7 +37,7 @@ It provides an API for uploading and serving media files using [MinIO](https://m
 
 ### Setup
 
-```bash
-dotnet restore
-dotnet build
-dotnet run
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/hvaezapp/MediaService.git
