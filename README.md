@@ -41,3 +41,10 @@ It provides an API for uploading and serving media files using [MinIO](https://m
 
    ```bash
    git clone https://github.com/hvaezapp/MediaService.git
+   
+2. Run :
+
+   ```bash
+   dotnet restore
+   dotnet build
+   dotnet run
