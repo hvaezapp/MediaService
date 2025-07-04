@@ -32,8 +32,8 @@ It provides an API for uploading and serving media files using [MinIO](https://m
 
 - .NET 9 SDK
 - Docker
-- Running MinIO instance
-- Running RabbitMQ instance
+- Running MinIO instance with Docker
+- Running RabbitMQ instance with Docker
 
 ### Setup
 
