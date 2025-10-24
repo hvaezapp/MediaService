@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Media Service** is a simple and extensible media management service built with **.NET 9**.  
+**Media Service** is a simple and extensible media management service built with **ASP.NET Core 9**.  
 It provides an API for uploading and serving media files using [MinIO](https://min.io/) as an object storage backend and integrates with **RabbitMQ** to publish events when a new file is uploaded.
 
 ---
